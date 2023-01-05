@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_details', function (Blueprint $table) {
+        Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('order_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders'); 
-            $table->integer('product_id');
-            $table->double('price',12,2)->nullable();
-            $table->integer('quantity');
+            $table->string('discountedCode',30);
+            $table->double('discount',8,2);
+            $table->date('expire_from');
+            $table->date('expire_to');
+            $table->integer('cate_id')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_details');
+        Schema::dropIfExists('discounts');
     }
 };

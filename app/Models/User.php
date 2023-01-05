@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Order\UserAddressModel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userAddress()
+    {
+        return $this->hasMany(UserAddressModel::class, 'user_id', 'id');
+    }
+
+    public function userOrders()
+    {
+        return $this->hasMany(OrderModel::class, 'user_id', 'id');
+    }
 }

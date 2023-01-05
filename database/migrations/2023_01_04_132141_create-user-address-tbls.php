@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('country_id')->nullable();
             $table->integer('zipcode')->nullable();
             $table->enum('type',['home','office','others'])->default('home');
-            $table->enum('actvated',[0,1])->default(0);
+            $table->enum('default_address',[0,1])->default(0);
             $table->timestamps();
         });
     }

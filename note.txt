@@ -1,1 +1,13 @@
-git pull origin anirban
+git init
+git remote add origin https://github.com/satirthaKreative/juteberry_ecommerce.git
+
+git add .
+git status
+git checkout -b anirban
+
+git config --global user.email "anirbankreative22@gmail.com"
+git config --global user.name "AnirbanKM"
+
+git commit -m "multi role login"
+
+$ git branch

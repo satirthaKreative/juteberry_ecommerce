@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->integer('parent_id')->nullable();
+            $table->text('path');
+            $table->float('offer_percentage',8,2)->nullable();
+            $table->float('tax_percent',4,2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

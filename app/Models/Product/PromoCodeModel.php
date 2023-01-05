@@ -12,10 +12,10 @@ class PromoCodeModel extends Model
     protected $table = "promocodes";
 
     protected $fillable = [
-        "promocode", 
-        "expire_from", 
+        "promocode",
+        "expire_from",
         "expire_to",
-        "type", 
+        "type",
         "promo_apply_id"
     ];
 }

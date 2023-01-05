@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_details', function (Blueprint $table) {
+        Schema::create('ordervendors', function (Blueprint $table) {
             $table->id();
-            $table->integer('order_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders'); 
-            $table->integer('product_id');
-            $table->double('price',12,2)->nullable();
-            $table->integer('quantity');
+            $table->integer('order_id')->nullable();
+            $table->integer('vendor_id')->nullable();
+            $table->string('order_status');
+            $table->enum('active',[0,1])->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_details');
+        Schema::dropIfExists('ordervendors_');
     }
 };

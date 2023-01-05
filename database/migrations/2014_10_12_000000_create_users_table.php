@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->bigInteger('phone_number')->unique();
+            $table->timestamp('phone_verified_at')->nullable();
             $table->integer('otp')->max(6);
             $table->string('password')->nullable();
             $table->rememberToken();

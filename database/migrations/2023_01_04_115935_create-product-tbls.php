@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {          
             $table->increments('id');
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); 
+            $table->foreign('category_id')->references('id')->on('categories'); 
             $table->string('title');
             $table->text('short_description')->nullable();
             $table->text('description');
             $table->double('price',12,2);
+            $table->double('sell_price',12,2);
             $table->boolean('availability')->default(1);
             $table->integer('stocks')->nullable();
             $table->longText('image');
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->softDeletes();
         });
     }
+
+    // pivot table
 
     /**
      * Reverse the migrations.

@@ -18,11 +18,24 @@ return new class extends Migration
             $table->string('order_id');
             $table->integer('user_id');
             $table->double('total_price',10,2);
-            $table->integer('address_id');
+            $table->double('discount',10,2);
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
+            $table->text('note')->nullable();
+            $table->string('landmark')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->integer('zipcode')->nullable();
+            $table->enum('type',['home','office','others'])->default('home');
+            $table->text('payment_remarks');
             $table->enum('order_status',['active','pending','cancelled'])->default('pending');
             $table->timestamps();
         });
     }
+
+     
+    // order management
 
     /**
      * Reverse the migrations.
