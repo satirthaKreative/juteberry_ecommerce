@@ -1,0 +1,257 @@
+/* satirtha css */
+
+.height-image-width-master-tbl {
+    width: 20% !important;
+}
+
+.height-image-master-tbl>img {
+    width: 40% !important;
+}
+
+.pre-uploaded-image>img {
+    width: 30% !important;
+}
+
+.pre-uploaded-image>.no-image-class {
+    padding: 10px 15px;
+    background: #eee;
+    width: 45%;
+}
+
+.combination-panel-page {
+    background: none;
+    position: relative;
+    .confetti {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+    .side-bar {
+        ul {
+            li {
+                margin: 0 0 7px;
+                a.menu-title {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 600;
+                    background: #23695b;
+                    color: #fff;
+                    padding: 10px;
+                    border-radius: 4px;
+                    i.fa.fa-angle-right {
+                        font-size: 20px;
+                        -webkit-transition: all 0.3s ease-in-out;
+                        -moz-transition: all 0.3s ease-in-out;
+                        -o-transition: all 0.3s ease-in-out;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+                a.menu-title.active {
+                    border-radius: 4px 4px 0 0;
+                    i.fa.fa-angle-right {
+                        transform: rotate(90deg) translate(0px, 0px);
+                    }
+                }
+                a.menu-title.active~a.add-btn {
+                    display: block;
+                }
+                .according-menu {
+                    display: none !important;
+                }
+                a.add-btn {
+                    display: table;
+                    width: 100%;
+                    background: #23695a;
+                    text-align: center;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 500;
+                    padding: 10px;
+                    position: sticky;
+                    bottom: 0;
+                }
+                a.add-btn.show-div {
+                    display: block;
+                }
+                ul.menu-content {
+                    background: #23695a24;
+                    border-bottom: 5px solid #23695a;
+                    max-height: 300px;
+                    overflow: auto;
+                    li {
+                        margin: 0;
+                        padding: 12px 13px;
+                        border-bottom: 1px solid #23695a;
+                        a.submenu-title {
+                            position: relative;
+                            display: flex;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: space-between;
+                            text-transform: uppercase;
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: #23695b;
+                        }
+                        label {
+                            margin: 0;
+                            color: #333;
+                            font-weight: 500;
+                            font-size: 13px;
+                            input[type="checkbox"] {
+                                position: relative;
+                                float: left;
+                                margin-right: 7px;
+                                margin-top: 3px;
+                            }
+                            input[type='checkbox']:after {
+                                line-height: 1.5em;
+                                content: '';
+                                display: flex;
+                                width: 15px;
+                                height: 15px;
+                                margin-top: -1px;
+                                margin-left: -1px;
+                                border-radius: 0.25em;
+                                background: #23695a;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            input[type='checkbox']:checked:after {
+                                content: "\2713";
+                                color: #fff;
+                            }
+                        }
+                    }
+                    li:last-child {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+    .decp {
+        label {
+            font-size: 13px;
+            color: #23695a;
+            font-weight: 500;
+        }
+        select {
+            width: 100%;
+            height: 40px;
+            border: 2px solid #23695b;
+            background: #23695a24;
+            padding: 0 6px;
+            color: #23695b;
+            font-weight: 600;
+            border-radius: 4px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .sec1 {
+            margin: 15px 0 0;
+            background: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 14px #23695a54;
+            input:not([type="submit"]) {
+                width: 100%;
+                border: none;
+                background: #d9e3e5;
+                padding: 10px;
+                border-radius: 4px;
+            }
+            select {
+                text-align: center;
+                font-size: 30px;
+                line-height: 30px;
+                border: none;
+            }
+            .qty {
+                position: relative;
+                display: flex;
+                border-radius: 4px;
+                overflow: hidden;
+                button {
+                    background: #23695a;
+                    border: none;
+                    color: #fff;
+                    font-size: 20px;
+                    width: 0;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 12px;
+                }
+                input[type="number"] {
+                    text-align: center;
+                    font-weight: 600;
+                }
+                input[type=number]::-webkit-inner-spin-button,
+                input[type=number]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    margin: 0;
+                }
+            }
+            a.remove-sec {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                font-size: 22px;
+                background: #23695a;
+                color: #fff;
+                border-radius: 4px;
+            }
+        }
+        input[type="submit"] {
+            border: none;
+            background: #23695a;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 14px 44px;
+            border-radius: 5px;
+            float: right;
+            margin: 30px 0 0;
+        }
+    }
+}
+
+
+/* width */
+
+ ::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #23695a24;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #23695b;
+}
+
+
+/* end of satirtha css */

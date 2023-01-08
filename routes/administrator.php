@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Administrator\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Administrator\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Administrator\Auth\EmailVerificationNotificationController;
@@ -17,7 +18,12 @@ Route::prefix('administrator')->name('administrator.')->group(function () {
 
         Route::get('/', [DashboardController::class, 'index']);
 
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('/dashboard', function () {
+            return view('admin.pages.dashboard');
+        })->name('dashboard');
+
 
         Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
 
@@ -34,6 +40,25 @@ Route::prefix('administrator')->name('administrator.')->group(function () {
         Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']);
 
         Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+        Route::prefix('category')->name('category.')->group(function () {
+
+            // Category CRUD
+            Route::get('/', [CategoryController::class, 'index'])->name('category_list');
+            Route::post('/create_category', [CategoryController::class, 'createCategory'])->name('create_category');
+            Route::get('/list_category', [CategoryController::class, 'listCategory'])->name('list_category');
+            Route::get('/delete_category/{id}', [CategoryController::class, 'deleteCategory'])->name('delete_category');
+            Route::get('/fetch_category/{id}', [CategoryController::class, 'fetchCategory'])->name('fetch_category');
+            Route::post('/update_category', [CategoryController::class, 'updateCategory'])->name('update_category');
+
+            // Sub Category CRUD
+            Route::get('/sub_category_create', [CategoryController::class, 'subCategoryCreate'])->name('sub_category_create');
+            Route::post('/create_sub_category', [CategoryController::class, 'createSubCategory'])->name('create_sub_category');
+            Route::get('/list_sub_category', [CategoryController::class, 'listSubCategory'])->name('list_sub_category');
+            Route::get('/delete_sub_category/{id}', [CategoryController::class, 'deleteSubCategory'])->name('delete_sub_category');
+            Route::get('/fetch_sub_category/{id}', [CategoryController::class, 'fetchSubCategory'])->name('fetch_sub_category');
+            Route::post('/update_sub_category', [CategoryController::class, 'updateSubCategory'])->name('update_sub_category');
+        });
 
         Route::group(['middleware' => 'checkRole:superadmin'], function () {
             Route::get('/superAdminDashboard', function () {
