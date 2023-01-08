@@ -9,5 +9,6 @@ git config --global user.email "anirbankreative22@gmail.com"
 git config --global user.name "AnirbanKM"
 
 git commit -m "multi role login"
+git push
 
 $ git branch
